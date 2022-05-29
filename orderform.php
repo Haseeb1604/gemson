@@ -26,7 +26,7 @@ else {
 
 
 $getposts = mysqli_query($con,"SELECT * FROM products WHERE id ='$poid'") or die(mysql_error());
-					if (mysql_num_rows($getposts)) {
+					if (mysqli_num_rows($getposts)) {
 						$row = mysqli_fetch_assoc($getposts);
 						$id = $row['id'];
 						$pName = $row['pName'];
