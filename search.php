@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_login'])) {
 }
 else {
 	$user = $_SESSION['user_login'];
-	$result = mysql_query("SELECT * FROM user WHERE id='$user'");
+	$result = mysqli_query($con,"SELECT * FROM user WHERE id='$user'");
 		$get_user_email = mysql_fetch_assoc($result);
 			$uname_db = $get_user_email['firstName'];
 }
@@ -96,7 +96,7 @@ $search_value = trim($_GET['keywords']);
 		<?php 
 			if (isset($_GET['keywords']) && $_GET['keywords'] != ""){
 				$search_value = trim($_GET['keywords']);
-				$getposts = mysql_query("SELECT * FROM products WHERE pName like '%$search_value%'  ORDER BY id DESC") or die(mysql_error());
+				$getposts = mysqli_query($con,"SELECT * FROM products WHERE pName like '%$search_value%'  ORDER BY id DESC") or die(mysql_error());
 					if ( $total = mysql_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					echo '<div style="text-align: center;"> '.$total.' Products Found... </div><br>';

@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin_login'])) {
 }
 else {
 	$user = $_SESSION['admin_login'];
-	$result = mysql_query("SELECT * FROM admin WHERE id='$user'");
+	$result = mysqli_query($con,"SELECT * FROM admin WHERE id='$user'");
 		$get_user_email = mysql_fetch_assoc($result);
 			$uname_db = $get_user_email['firstName'];
 }
@@ -90,7 +90,7 @@ $search_value = "";
 				<tr>
 					<?php include ( "../inc/connect.inc.php");
 					$query = "SELECT * FROM products ORDER BY id DESC";
-					$run = mysql_query($query);
+					$run = mysqli_query($con,$query);
 					while ($row=mysql_fetch_assoc($run)) {
 						$id = $row['id'];
 						$pName = substr($row['pName'], 0,50);

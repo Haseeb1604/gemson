@@ -7,15 +7,15 @@ if (!isset($_SESSION['user_login'])) {
 }
 else {
 	$user = $_SESSION['user_login'];
-	$result = mysql_query("SELECT * FROM user WHERE id='$user'");
-		$get_user_email = mysql_fetch_assoc($result);
+	$result = mysqli_query($con, "SELECT * FROM user WHERE id='$user'");
+		$get_user_email = mysqli_fetch_assoc($result);
 			$uname_db = $get_user_email['firstName'];
 }
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Welcome to ebuybd online shop</title>
+		<title>Gemsone</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

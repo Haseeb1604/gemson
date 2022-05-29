@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
 		$password_login = mysql_real_escape_string($_POST['password']);		
 		$num = 0;
 		$password_login_md5 = md5($password_login);
-		$result = mysql_query("SELECT * FROM admin WHERE (email='$user_login') AND password='$password_login_md5'");
+		$result = mysqli_query($con,"SELECT * FROM admin WHERE (email='$user_login') AND password='$password_login_md5'");
 		$num = mysql_num_rows($result);
 		$get_user_email = mysql_fetch_assoc($result);
 			$get_user_uname_db = $get_user_email['id'];

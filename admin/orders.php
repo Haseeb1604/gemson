@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin_login'])) {
 }
 else {
 	$user = $_SESSION['admin_login'];
-	$result = mysql_query("SELECT * FROM admin WHERE id='$user'");
+	$result = mysqli_query($con,"SELECT * FROM admin WHERE id='$user'");
 		$get_user_email = mysql_fetch_assoc($result);
 			$uname_db = $get_user_email['firstName'];
 }
@@ -91,7 +91,7 @@ else {
 				<tr>
 					<?php include ( "../inc/connect.inc.php");
 					$query = "SELECT * FROM orders ORDER BY id DESC";
-					$run = mysql_query($query);
+					$run = mysqli_query($con,$query);
 					while ($row=mysql_fetch_assoc($run)) {
 						$oid = $row['id'];
 						$ouid = $row['uid'];
@@ -104,7 +104,7 @@ else {
 						$ddate = $row['ddate'];
 						//getting user info
 						$query1 = "SELECT * FROM user WHERE id='$ouid'";
-						$run1 = mysql_query($query1);
+						$run1 = mysqli_query($con,$query1);
 						$row1=mysql_fetch_assoc($run1);
 						$ofname = $row1['firstName'];
 						$oumobile = $row1['mobile'];
@@ -112,7 +112,7 @@ else {
 
 						//product info
 						$query2 = "SELECT * FROM products WHERE id='$opid'";
-						$run2 = mysql_query($query2);
+						$run2 = mysqli_query($con,$query2);
 						$row2=mysql_fetch_assoc($run2);
 						$opcate = $row2['category'];
 						$opitem = $row2['item'];
