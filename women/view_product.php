@@ -20,7 +20,7 @@ if (isset($_REQUEST['pid'])) {
 
 
 $getposts = mysqli_query($con,"SELECT * FROM products WHERE id ='$pid'") or die(mysql_error());
-					if (mysql_num_rows($getposts)) {
+					if (mysqli_num_rows($getposts)) {
 						$row = mysqli_fetch_assoc($getposts);
 						$id = $row['id'];
 						$pName = $row['pName'];
@@ -98,7 +98,7 @@ $getposts = mysqli_query($con,"SELECT * FROM products WHERE id ='$pid'") or die(
 		<div>
 		<?php 
 			$getposts = mysqli_query($con,"SELECT * FROM products WHERE available >='1' AND id != '".$pid."' AND item ='".$item."'  ORDER BY RAND() LIMIT 3") or die(mysql_error());
-					if (mysql_num_rows($getposts)) {
+					if (mysqli_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					while ($row = mysqli_fetch_assoc($getposts)) {
 						$id = $row['id'];

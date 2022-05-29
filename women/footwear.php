@@ -42,7 +42,7 @@ else {
 		<div>
 		<?php 
 			$getposts = mysqli_query($con,"SELECT * FROM products WHERE available >='1' AND item ='footWear'  ORDER BY id DESC LIMIT 10") or die(mysql_error());
-					if (mysql_num_rows($getposts)) {
+					if (mysqli_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					while ($row = mysqli_fetch_assoc($getposts)) {
 						$id = $row['id'];
