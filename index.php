@@ -14,51 +14,16 @@ if (!isset($_SESSION['user_login'])) {
 <?php include ( "inc/head.inc.php" ); ?>
 <body>
 	<?php include ( "inc/navbar.inc.php" ); ?>
-	<div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
-						}
-						else {
-							echo '<a style="color: #fff; text-decoration: none;" href="signin.php">SIGN IN</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
-						}
-					 ?>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/ebuybdlogo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="search.php">
-					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
+	<section class="showcase">
+		<div class="container-lg">
+			<div class="showcase-content">
+				<h1 class="text-1">Welcome To Gemsone</h1>
+				<h2 class="text-2">Largest Online Gemstones Shopping in Pakistan</h2>
 			</div>
 		</div>
-		<div class="home-welcome">
-			<div class="home-welcome-text" style="background-image: url(image/homebackgrndimg.png); height: 380px; ">
-				<h1 style="margin: 0px;">Welcome To eBuyBD</h1>
-				<h2>Largest Online Shopping In Bangladesh</h2>
-			</div>
-		</div>
-		<div class="home-prodlist">
+	</section>
+	<!-- <div> -->
+		<!-- <div class="home-prodlist">
 			<div>
 				<h3 style="text-align: center;">Products Category</h3>
 			</div>
@@ -122,5 +87,5 @@ if (!isset($_SESSION['user_login'])) {
 					</li>
 				</ul>
 			</div>			
-		</div>
+		</div> -->
 <?php include ( "inc/foot.inc.php") ?>

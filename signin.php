@@ -29,19 +29,15 @@ $_POST['last_name'] = trim($_POST['last_name']);
 	try {
 		if(empty($_POST['first_name'])) {
 			throw new Exception('Fullname can not be empty');
-			
 		}
 		if (is_numeric($_POST['first_name'][0])) {
 			throw new Exception('Please write your correct name!');
-
 		}
 		if(empty($_POST['last_name'])) {
 			throw new Exception('Lastname can not be empty');
-			
 		}
 		if (is_numeric($_POST['last_name'][0])) {
 			throw new Exception('lastname first character must be a letter!');
-
 		}
 		if(empty($_POST['email'])) {
 			throw new Exception('Email can not be empty');
@@ -59,13 +55,10 @@ $_POST['last_name'] = trim($_POST['last_name']);
 			throw new Exception('Address can not be empty');
 			
 		}
-
-		
 		// Check if email already exists
-		
 		$check = 0;
-		$e_check = mysql_query("SELECT email FROM `user` WHERE email='$u_email'");
-		$email_check = mysql_num_rows($e_check);
+		$e_check = mysqli_query($con,"SELECT email FROM `user` WHERE email='$u_email'");
+		$email_check = mysqli_num_rows($e_check);
 		if (strlen($_POST['first_name']) >2 && strlen($_POST['first_name']) <16 ) {
 			if ($check == 0 ) {
 				if ($email_check == 0) {
@@ -85,7 +78,7 @@ $_POST['last_name'] = trim($_POST['last_name']);
 						Signup email: ".$_POST['email']."
 						
 						";
-						if (@mail($_POST['email'],"eBuyBD Activation Code",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
+						if (@mail($_POST['email'],"Gemson Activation Code",$msg, "From:haseeb <no-reply@gemson.com>")) {
 							
 						$result = mysql_query("INSERT INTO user (firstName,lastName,email,mobile,address,password,confirmCode) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[mobile]','$_POST[signupaddress]','$_POST[password]','$confirmCode')");
 						
@@ -124,103 +117,83 @@ $_POST['last_name'] = trim($_POST['last_name']);
 
 
 ?>
+<?php include ( "inc/head.inc.php" ); ?>
 
+<body>
+	<?php include ( "inc/navbar.inc.php" ); ?>
 
-<!doctype html>
-<html>
-	<head>
-		<title>Welcome to ebuybd online shop</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-	<body class="home-welcome-text" style="background-image: url(image/homebackgrndimg2.png);">
-		<div class="homepageheader" style="position: inherit;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none;" href="signin.php">SIGN IN</a>
-				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<a style="text-decoration: none;" href="login.php">LOG IN</a>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/ebuybdlogo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
+	<section>
+		<div class="container pb-5">
+		<?php if (isset($error_message) && $error_message !=""){
+			echo '<div class="mt-2 alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+				<use xlink:href="#exclamation-triangle-fill"/>
+			</svg>
+			'.$error_message.'
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>';
+		} elseif (isset($success_message) && $success_message!=""){
+			echo '<div class="mt-2 alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+				<use xlink:href="#check-circle-fill"/>
+			</svg>
+			'.$error_message.'
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>';
+		} ?>
+			<div class="row d-flex align-items-center justify-content-center h-100">
+				<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+					
+					<p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4">Sign up</p>
+					
+					<form class="mx-1 mx-md-4 registration" method="POST">
+						<div class="d-flex flex-row align-items-center mb-2">
+							<div class="form-floating me-1">
+								<input type="text" name="first_name" class="form-control" id="fName" placeholder="First Name" required>
+								<label for="fName">First Name</label>
+							</div>
+							<div class="form-floating ms-1">
+								<input type="text" name="last_name" class="form-control" id="lName" placeholder="First Name" required>
+								<label for="lName">Last Name</label>
+							</div>
+						</div>
+
+						<div class="form-floating mb-2">
+							<input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+							<label for="email">Email address</label>
+						</div>
+
+						<div class="form-floating mb-2">
+							<input type="tel" name="mobile" class="form-control" id="phone" placeholder="phone" required>
+							<label for="phone">Phone Number</label>
+						</div>
+
+						<div class="form-floating mb-2">
+							<input type="texting" name="signupaddress" class="form-control" id="signupaddress" placeholder="Address" required>
+							<label for="signupaddress">Address</label>
+						</div>
+
+						<div class="form-floating mb-2">
+							<input type="password" name="password" class="form-control" id="password" placeholder="password" required>
+							<label for="password">Password</label>
+						</div>
+
+						<div class="form-check d-flex justify-content-center mb-3">
+							<input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" required />
+							<label class="form-check-label" for="form2Example3">
+								I agree all statements in <a href="#!">Terms of service</a>
+							</label>
+						</div>
+
+						<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+							<button type="submit" name="signup" class="btn btn-primary btn-lg">Register</button>
+						</div>
 					</form>
-				<div class="srcclear"></div>
+				</div>
+				<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+					<img src="./image/signup.webp" class="img-fluid" height="100%" alt="Signup Image">
 				</div>
 			</div>
 		</div>
-		<?php 
-			if(isset($success_message)) {echo $success_message;}
-			else {
-				echo '
-					<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 26px;">
-						<div class="container">
-							<div>
-								<div>
-									<div class="signupform_content">
-										<h2>Sign Up Form!</h2>
-										<div class="signupform_text"></div>
-										<div>
-											<form action="" method="POST" class="registration">
-												<div class="signup_form">
-													<div>
-														<td >
-															<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="'.$u_fname.'" >
-														</td>
-													</div>
-													<div>
-														<td >
-															<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name signupbox" type="text" size="30" value="'.$u_lname.'" >
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="'.$u_email.'">
-														</td
-			>										</div>
-													<div>
-														<td>
-															<input name="mobile" placeholder="Enter Your Mobile" required="required" class="email signupbox" type="text" size="30" value="'.$u_mobile.'">
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="'.$u_address.'">
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class="password signupbox " type="password" size="30" value="'.$u_pass.'">
-														</td>
-													</div>
-													<div>
-														<input name="signup" class="uisignupbutton signupbutton" type="submit" value="Sign Me Up!">
-													</div>
-													<div class="signup_error_msg">';
-														
-															if (isset($error_message)) {echo $error_message;}
-															
-														
-													echo'</div>
-												</div>
-											</form>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				';
-			}
-
-		 ?>
-	</body>
-</html>
+	</section>
+	<?php include ( "inc/foot.inc.php" );?>

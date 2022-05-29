@@ -102,38 +102,46 @@ if(isset($_POST['activate'])){
 }
 
 ?>
+<?php include ( "inc/head.inc.php")?>
+<body>
+<?php include ( "inc/navbar.inc.php" ); ?>
+<section>
+	<div class="container py-5 h-100">
+		<div class="row d-flex align-items-center justify-content-center h-100">
+			<div class="col-md-8 col-lg-7 col-xl-6">
+				<img src="./image/login.svg" class="img-fluid" alt="Phone image">
+			</div>
+			<div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+			<form>
+				<!-- Email input -->
+				<div class="form-outline mb-4">
+					<input type="email" name="email" id="email" class="form-control form-control-lg" />
+					<label class="form-label" for="form1Example13">Email address</label>
+				</div>
 
-<!doctype html>
-<html>
-	<head>
-		<title>Welcome to ebuybd online shop</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-	<body class="home-welcome-text" style="background-image: url(image/homebackgrndimg1.png);">
-		<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>
+				<!-- Password input -->
+				<div class="form-outline mb-4">
+					<input type="password" name="password" id="password" class="form-control form-control-lg" />
+					<label class="form-label" for="form1Example23">Password</label>
 				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>
+
+				<div class="d-flex justify-content-between align-items-center mb-4">
+					<!-- Checkbox -->
+					<div class="form-check">
+					<input class="form-check-input" name="remember" type="checkbox" value="" id="remember" checked />
+					<label class="form-check-label" for="form1Example3"> Remember me </label>
+					</div>
+					<a href="#!">Forgot password?</a>
 				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/ebuybdlogo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="search.php">
-					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
+
+				<!-- Submit button -->
+				<button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+			</form>
 			</div>
 		</div>
-		<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
+	</div>
+</section>
+		<!-- <div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
 			<div class="container">
 				<div>
 					<div>
@@ -209,6 +217,5 @@ if(isset($_POST['activate'])){
 					</div>
 				</div>
 			</div>
-		</div>
-	</body>
-</html>
+		</div> -->
+<?php include ( "inc/foot.inc.php" ); ?>
