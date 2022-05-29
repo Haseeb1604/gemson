@@ -171,7 +171,7 @@ $search_value = "";
 														<td>
 															<select name="category" required="required" style=" font-size: 20px;
 														font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-																<option selected value="women">Women</option>
+																<option selected value="gems">gems</option>
 															</select>
 														</td>
 													</div>

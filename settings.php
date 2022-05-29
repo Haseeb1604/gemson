@@ -29,73 +29,69 @@ if (isset($_REQUEST['uid'])) {
 }
 
 if (isset($_POST['changesettings'])) {
-//declere veriable
-$email = $_POST['email'];
-$opass = $_POST['opass'];
-$npass = $_POST['npass'];
-$npass1 = $_POST['npass1'];
-//triming name
-	try {
-		if(empty($_POST['email'])) {
-			throw new Exception('Email can not be empty');		
-		}
-			if(isset($opass) && isset($npass) && isset($npass1) && ($opass != "" && $npass != "" && $npass1 != "")){
-				if( md5($opass) == $upass){
-					if($npass == $npass1){
-						$npass = md5($npass);
-						mysqli_query($con,"UPDATE user SET password='$npass' WHERE id='$user'");
-						$success_message = '
-						<div class="signupform_text" style="font-size: 18px; text-align: center;">
-						<font face="bookman">
-							Password changed.
-						</font></div>';
-					}else {
-					$success_message = '
-						<div class="signupform_text" style=" color: red; font-size: 18px; text-align: center;">
-						<font face="bookman">
-							New password not matched!
-						</font></div>';
+	//declere veriable
+	$email = $_POST['email'];
+	$opass = $_POST['opass'];
+	$npass = $_POST['npass'];
+	$npass1 = $_POST['npass1'];
+	//triming name
+		try {
+			if(empty($_POST['email'])) {
+				throw new Exception('Email can not be empty');		
+			}
+				if(isset($opass) && isset($npass) && isset($npass1) && ($opass != "" && $npass != "" && $npass1 != "")){
+					if( md5($opass) == $upass){
+						if($npass == $npass1){
+							$npass = md5($npass);
+							mysqli_query($con,"UPDATE user SET password='$npass' WHERE id='$user'");
+							$success_message = 'Password changed Successfully.';
+						}else {
+							throw new Exception('Password Not Matched.'); 
+						}
+					}else { throw new Exception('Fillup password field exactly.'); }
+				}else { throw new Exception('Fillup password field exactly.'); }
+
+				if($uemail_db != $email) {
+					if(mysqli_query($con,"UPDATE user SET  email='$email' WHERE id='$user'")){
+						//success message
+						$success_message = 'Settings change successfull.';
 					}
-				}else {
-				$success_message = '
-					<div class="signupform_text" style=" color: red; font-size: 18px; text-align: center;">
-					<font face="bookman">
-						Fillup password field exactly.
-					</font></div>';
-				}
-			}else {
-				$success_message = '
-					<div class="signupform_text" style=" color: red; font-size: 18px; text-align: center;">
-					<font face="bookman">
-						Fillup password field exactly.
-					</font></div>';
 				}
 
-			if($uemail_db != $email) {
-				if(mysqli_query($con,"UPDATE user SET  email='$email' WHERE id='$user'")){
-					//success message
-					$success_message = '
-					<div class="signupform_text" style="font-size: 18px; text-align: center;">
-					<font face="bookman">
-						Settings change successfull.
-					</font></div>';
+		}
+		catch(Exception $e) {
+			$error_message = $e->getMessage();
+		}
+}
+if (isset($_POST['changesettings2'])) {
+	//declere veriable
+	$phone = $_POST['tel'];
+	$fname = $_POST['first_name'];
+	$lname = $_POST['last_name'];
+	$address = $_POST['address'];
+	//triming name
+		try {
+			if(isset($fname) && isset($lname) && isset($address) && ($fname != "" && $lname != "" && $address != "")){
+				if($umob_db != $phone) {
+					if(mysqli_query($con,"UPDATE user SET firstName='$fname', lastName='$lname', address='$address', mobile='$phone' WHERE id='$user'")){
+						$success_message = 'User Details was successfully updated';
+					}else{ throw new Exception(mysqli_error($con)); }
 				}
 			}
-
-	}
-	catch(Exception $e) {
-		$error_message = $e->getMessage();
-	}
+		}catch(Exception $e) {
+			$error_message = $e->getMessage();
+		}
 }
 ?>
-
 <?php include ( "inc/head.inc.php") ?>
 <body>
 	<?php include ( "inc/navbar.inc.php" ); ?>
-	<div class="profile-title mt-4">
+	<div class="setting-title big-title mt-4">
 		<h1 class="title text-center">Settings</h1>
 	</div>
-	<?php include ( "inc/message.inc.php" ); ?>
+	<div class="container mx-auto">
+		<?php include ( "inc/message.inc.php" ); ?>
+	</div>
 	<div style="margin: 20px auto 0;"  class="row profile">
 			<div class="col-lg-2 col-md-2">
 				<div class="btn-group-vertical">
@@ -129,7 +125,7 @@ $npass1 = $_POST['npass1'];
 					<h4>Change Phone:</h4>
 					<div class="form-floating mb-3">
 						<?php echo '<input class="form-control" required type="tel" name="tel" placeholder="New Phone Number" id="phone" value="'.$umob_db.'">'; ?>
-						<label for="phone">New Email address</label>
+						<label for="phone">New Phone Number</label>
 					</div>
 					<h4>Details:</h4>
 					<div class="form-floating">
@@ -148,5 +144,4 @@ $npass1 = $_POST['npass1'];
 				</form>
 			</div>
 	</div>	
-</body>
-</html>
+<?php include ( "inc/foot.inc.php" ); ?>

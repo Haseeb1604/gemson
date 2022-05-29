@@ -29,77 +29,18 @@ $search_value = trim($_GET['keywords']);
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>SAREE</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<?php include ("./inc/head.inc.php") ?>
 <body>
-	<div class="homepageheader">
-		<div class="signinButton loginButton">
-			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-				<?php 
-					if ($user!="") {
-						echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
-					}
-					else {
-						echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>';
-					}
-				 ?>
-				
-			</div>
-			<div class="uiloginbutton signinButton loginButton" style="">
-				<?php 
-					if ($user!="") {
-						echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
-					}
-					else {
-						echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
-					}
-				 ?>
-			</div>
-		</div>
-		<div style="float: left; margin: 5px 0px 0px 23px;">
-			<a href="index.php">
-				<img style=" height: 75px; width: 130px;" src="image/ebuybdlogo.png">
-			</a>
-		</div>
-		<div id="srcheader">
-				<form id="newsearch" method="get" action="search.php">
-				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
-				         ?>
-				</form>
-			<div class="srcclear"></div>
-		</div>
-	</div>
-	<div class="categolis">
-		<table>
-			<tr>
-				<th>
-					<a href="women/saree.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Saree</a>
-				</th>
-				<th><a href="women/ornament.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Ornament</a></th>
-				<th><a href="women/watch.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Watch</a></th>
-				<th><a href="women/perfume.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Perfume</a></th>
-				<th><a href="women/hijab.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Hijab</a></th>
-				<th><a href="women/tshirt.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">T-Shirt</a></th>
-				<th><a href="women/footwear.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">FootWear</a></th>
-				<th><a href="women/toilatry.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Toilatry</a></th>
-			</tr>
-		</table>
-	</div>
+	<?php include ( "inc/navbar.inc.php" ); ?>
 	<div style="padding: 30px 120px; font-size: 25px; margin: 0 auto; display: table; width: 98%;">
-		<div>
+	<div>
 		<?php 
 			if (isset($_GET['keywords']) && $_GET['keywords'] != ""){
 				$search_value = trim($_GET['keywords']);
 				$getposts = mysqli_query($con,"SELECT * FROM products WHERE pName like '%$search_value%'  ORDER BY id DESC") or die(mysql_error());
 					if ( $total = mysqli_num_rows($getposts)) {
-					echo '<ul id="recs">';
 					echo '<div style="text-align: center;"> '.$total.' Products Found... </div><br>';
+					echo "<div class='d-flex flex-wrap-reverse flex-row-reverse justify-content-evenly'>";
 					while ($row = mysqli_fetch_assoc($getposts)) {
 						$id = $row['id'];
 						$pName = $row['pName'];
@@ -109,19 +50,15 @@ $search_value = trim($_GET['keywords']);
 						$item = $row['item'];
 						
 						echo '
-							<ul style="float: left;">
-								<li style="float: left; padding: 0px 25px 25px 25px;">
-									<div class="home-prodlist-img"><a href="women/view_product.php?pid='.$id.'">
-										<img src="image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">
-										</a>
-										<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Tk</div>
-									</div>
-									
-								</li>
-							</ul>
+							<div class="search-product">
+								<a href="gems/view_product.php?pid='.$id.'">
+									<img src="image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">
+								</a>
+								<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: Rs '.$price.' </div>
+							</div>
 						';
-
 						}
+					echo "</div>";	
 				}else {
 				echo "Nothing Found!";
 			}

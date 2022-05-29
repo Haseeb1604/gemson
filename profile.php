@@ -33,8 +33,8 @@ $search_value = "";
 
 <body style="background-image: #eee;">
 	<?php include ( "inc/navbar.inc.php") ?>
-	<div class="profile-title mt-4">
-		<h2 class="title text-center">Profile</h2>
+	<div class="profile-title big-title mt-4">
+		<h1 class="title text-center">Orders</h1>
 	</div>
 	<?php include ( "inc/message.inc.php" ); ?>
 	<div style="margin: 20px auto 0;"  class="row profile">

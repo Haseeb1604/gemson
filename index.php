@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_login'])) {
 }
 ?>
 <?php include ( "inc/head.inc.php" ); ?>
+
 <body>
 	<?php include ( "inc/navbar.inc.php" ); ?>
 	<section class="showcase home">
@@ -22,71 +23,40 @@ if (!isset($_SESSION['user_login'])) {
 			</div>
 		</div>
 	</section>
-	<!-- <div> -->
-		<!-- <div class="home-prodlist">
-			<div>
-				<h3 style="text-align: center;">Products Category</h3>
+	<div class="home-prodlist mt-5">
+		<div>
+			<h3 style="text-align: center; mt-4">Products Category</h3>
+		</div>
+		<div style="padding: 20px 30px; width: 85%; margin: 0 auto;" class="d-flex justify-content-evenly flex-wrap">
+			<div class="home-product-card">
+				<a href="gems/saree.php">
+					<img src="./image/product/saree/new-designer-fancy-look-attractive-saree-2-original.jpg" class="home-product-img">
+				</a>
 			</div>
-			<div style="padding: 20px 30px; width: 85%; margin: 0 auto;">
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/saree.php">
-							<img src="./image/product/saree/new-designer-fancy-look-attractive-saree-2-original.jpg" class="home-prodlist-imgi">
-							</a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/perfume.php">
-							<img src="./image/product/perfume/Most-Popular-Perfumes-for-Women10.png" class="home-prodlist-imgi">
-							</a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/hijab.php">
-							<img src="./image/product/saree/hijab 1.png" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/toilatry.php">
-							<img src="./image/product/beauty/toiletries.png" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/footwear.php">
-							<img src="./image/product/footwear/footwear1.png" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/tshirt.php">
-							<img src="./image/product/saree/tshirts1.png" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/watch.php">
-							<img src="./image/product/watch/watches1.png" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="women/ornament.php">
-							<img src="./image/product/ornament/earrings1.png" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-			</div>			
-		</div> -->
-<script> document.querySelector(".nav-item .home").classList.add("active") </script>
-<?php include ( "inc/foot.inc.php") ?>
+			<div class="home-product-card"><a href="gems/perfume.php">
+					<img src="./image/product/perfume/Most-Popular-Perfumes-for-women10.png" class="home-product-img">
+				</a>
+			</div>
+			<div class="home-product-card"><a href="gems/hijab.php">
+					<img src="./image/product/saree/hijab 1.png" class="home-product-img"></a>
+			</div>
+			<div class="home-product-card"><a href="gems/toilatry.php">
+					<img src="./image/product/beauty/toiletries.png" class="home-product-img"></a>
+			</div>
+			<div class="home-product-card"><a href="gems/footwear.php">
+					<img src="./image/product/footwear/footwear1.png" class="home-product-img"></a>
+			</div>
+			<div class="home-product-card"><a href="gems/tshirt.php">
+					<img src="./image/product/saree/tshirts1.png" class="home-product-img"></a>
+			</div>
+			<div class="home-product-card"><a href="gems/watch.php">
+					<img src="./image/product/watch/watches1.png" class="home-product-img"></a>
+			</div>
+			<div class="home-product-card"><a href="gems/ornament.php">
+					<img src="./image/product/ornament/earrings1.png" class="home-product-img"></a>
+			</div>
+		</div>
+		<script>
+			document.querySelector(".nav-item .home").classList.add("active")
+		</script>
+		<?php include ( "inc/foot.inc.php") ?>
