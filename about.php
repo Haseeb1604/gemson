@@ -22,5 +22,11 @@ if (!isset($_SESSION['user_login'])) {
 			</div>
 		</div>
 	</section>
+	<section class="container card py-5 px-5 my-5 ">
+		<h2>Who we're</h2>
+		<p>
+		Gemson is specialist in all types of Gemstones. Extensive choice of classic to contemporary rings in all precious metals, including all types of gemstones. Perfect for gifts, we are stockists of Pakistani Mens Rings, Pakistani Gemstones, Thai Gemstones, Pearl Jewellery, beads, bracelet, necklaces, rings, earrings and cufflinks. We also deal in all Gemstone – Rough and Faceted. We are Retail Company based in Pakistan.
+		</p>
+	</section>
 <script> document.querySelector(".nav-item .about").classList.add("active") </script>
 <?php include ( "inc/foot.inc.php") ?>
