@@ -135,7 +135,7 @@ header a {
 .loginBtn a.btn{
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-    border-right-color: #333333;
+    /* border-right-color: #333333; */
 }
 
 .SignupBtn a.btn{
@@ -187,15 +187,24 @@ header a {
 	background: var(--theme-color-hover);;
 }
 
+.showcase.about{
+    background:linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg4.png);
+    background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg4.png);
+    background: -o-linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg4.png);
+    background: -moz-linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg4.png);
+}
 
-.showcase {
-    display: flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
+.showcase.home{
     background: linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg.png);
     background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg.png);
     background: -o-linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg.png);
     background: -moz-linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5), rgba(0, 0, 0, .4), rgba(0, 0, 0, .2), rgba(0, 0, 0, .1)), url(../image/homebackgrndimg.png);
+}
+
+.showcase {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;   
     background-repeat: no-repeat;
     background-clip: border-box;
     background-size: cover;

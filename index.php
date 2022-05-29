@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_login'])) {
 <?php include ( "inc/head.inc.php" ); ?>
 <body>
 	<?php include ( "inc/navbar.inc.php" ); ?>
-	<section class="showcase">
+	<section class="showcase home">
 		<div class="container-lg">
 			<div class="showcase-content">
 				<h1 class="text-1">Welcome To Gemsone</h1>
@@ -88,4 +88,5 @@ if (!isset($_SESSION['user_login'])) {
 				</ul>
 			</div>			
 		</div> -->
+<script> document.querySelector(".nav-item .home").classList.add("active") </script>
 <?php include ( "inc/foot.inc.php") ?>
