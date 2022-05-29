@@ -10,7 +10,7 @@ if (!isset($_SESSION['admin_login'])) {
 else {
 	if (isset($_REQUEST['epid'])) {
 	
-		$epid = mysql_real_escape_string($_REQUEST['epid']);
+		$epid = mysqli_real_escape_string( $con,$_REQUEST['epid']);
 	}else {
 		header('location: index.php');
 	}

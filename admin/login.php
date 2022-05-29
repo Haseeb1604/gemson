@@ -11,9 +11,9 @@ else {
 
 if (isset($_POST['login'])) {
 	if (isset($_POST['email']) && isset($_POST['password'])) {
-		$user_login = mysql_real_escape_string($_POST['email']);
+		$user_login = mysqli_real_escape_string( $con,$_POST['email']);
 		$user_login = mb_convert_case($user_login, MB_CASE_LOWER, "UTF-8");	
-		$password_login = mysql_real_escape_string($_POST['password']);		
+		$password_login = mysqli_real_escape_string( $con,$_POST['password']);		
 		$num = 0;
 		$password_login_md5 = md5($password_login);
 		$result = mysqli_query($con,"SELECT * FROM admin WHERE (email='$user_login') AND password='$password_login_md5'");

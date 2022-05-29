@@ -3,7 +3,7 @@
 
 if (isset($_REQUEST['poid'])) {
 	
-	$poid = mysql_real_escape_string($_REQUEST['poid']);
+	$poid = mysqli_real_escape_string( $con,$_REQUEST['poid']);
 }else {
 	header('location: index.php');
 }

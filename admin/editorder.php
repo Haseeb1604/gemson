@@ -10,7 +10,7 @@ if (!isset($_SESSION['admin_login'])) {
 else {
 	if (isset($_REQUEST['eoid'])) {
 	
-		$eoid = mysql_real_escape_string($_REQUEST['eoid']);
+		$eoid = mysqli_real_escape_string( $con,$_REQUEST['eoid']);
 		$getposts5 = mysqli_query($con,"SELECT * FROM orders WHERE id='$eoid'") or die(mysql_error());
 			if (mysql_num_rows($getposts5)){
 

@@ -13,7 +13,7 @@ else {
 }
 if (isset($_REQUEST['pid'])) {
 	
-	$pid = mysql_real_escape_string($_REQUEST['pid']);
+	$pid = mysqli_real_escape_string( $con,$_REQUEST['pid']);
 }else {
 	header('location: index.php');
 }

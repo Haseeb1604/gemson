@@ -14,7 +14,7 @@ else {
 
 if (isset($_REQUEST['keywords'])) {
 
-	$epid = mysql_real_escape_string($_REQUEST['keywords']);
+	$epid = mysqli_real_escape_string( $con,$_REQUEST['keywords']);
 	if($epid != "" && ctype_alnum($epid)){
 		
 	}else {
