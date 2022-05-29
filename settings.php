@@ -37,8 +37,7 @@ $npass1 = $_POST['npass1'];
 //triming name
 	try {
 		if(empty($_POST['email'])) {
-			throw new Exception('Email can not be empty');
-			
+			throw new Exception('Email can not be empty');		
 		}
 			if(isset($opass) && isset($npass) && isset($npass1) && ($opass != "" && $npass != "" && $npass1 != "")){
 				if( md5($opass) == $upass){
@@ -88,120 +87,66 @@ $npass1 = $_POST['npass1'];
 		$error_message = $e->getMessage();
 	}
 }
-
-
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>SAREE</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body style="background-image: url(image/homebackgrndimg1.png);">
-	<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
-						}
-					 ?>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/ebuybdlogo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
-			</div>
-		</div>
-	<div class="categolis">
-		<table>
-			<tr>
-				<th>
-					<a href="women/saree.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Saree</a>
-				</th>
-				<th><a href="women/ornament.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Ornament</a></th>
-				<th><a href="women/watch.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Watch</a></th>
-				<th><a href="women/perfume.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Perfume</a></th>
-				<th><a href="women/hijab.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Hijab</a></th>
-				<th><a href="women/tshirt.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">T-Shirt</a></th>
-				<th><a href="women/footwear.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">FootWear</a></th>
-				<th><a href="women/toilatry.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Toilatry</a></th>
-			</tr>
-		</table>
+<?php include ( "inc/head.inc.php") ?>
+<body>
+	<?php include ( "inc/navbar.inc.php" ); ?>
+	<div class="profile-title mt-4">
+		<h1 class="title text-center">Settings</h1>
 	</div>
-	<div style="margin-top: 20px;">
-		<div style="width: 901px; margin: 0 auto;">
-		
-			<ul>
-				<li style="float: left;">
-					<div class="settingsleftcontent">
-						<ul>
-							<li><?php echo '<a href="profile.php?uid='.$user.'" >My Orders</a>'; ?></li>
-							<li><?php echo '<a href="settings.php?uid='.$user.'" style=" background-color: #169e8f; border-radius: 4px; color: #fff;">Settings</a>'; ?></li>
-						</ul>
+	<?php include ( "inc/message.inc.php" ); ?>
+	<div style="margin: 20px auto 0;"  class="row profile">
+			<div class="col-lg-2 col-md-2">
+				<div class="btn-group-vertical">
+					<?php echo '<a href="profile.php?uid='.$user.'" class="btn btn-outline-primary px-5 py-3" >My Orders</a>'; ?>
+					<?php echo '<a href="settings.php?uid='.$user.'" class="btn btn-primary px-5 py-3">Settings</a>'; ?>
+				</div>
+			</div>
+			<div class="col-lg-10 col-md-10 row">
+				<form method="POST" class="registration col-md-6 col-sm-12">
+					<h4>Change Email:</h4>
+					<div class="form-floating mb-3">
+						<?php echo '<input class="form-control" required type="email" name="email" placeholder="New Email Address" id="email" value="'.$uemail_db.'">'; ?>
+						<label for="email">New Email address</label>
 					</div>
-				</li>
-				<li style="float: right;">
-					<div class="holecontainer" style=" padding-top: 20px; padding: 0 20%">
-						<form action="" method="POST" class="registration">
-							<div class="container signupform_content ">
-								<div style="text-align: center;font-size: 20px;color: #fff;margin: 0 0 5px 0;">
-									<td >Change Password:</td>
-								</div>
-								<div>
-									<td><input class="email signupbox" type="password" name="opass" placeholder="Old Password"></td>
-								</div>
-								<div>
-									<td><input class="email signupbox" type="password" name="npass" placeholder="New Password"></td>
-								</div>
-								<div>
-									<td><input class="email signupbox" type="password" name="npass1" placeholder="Repeat Password"></td>
-								</div>
-								<div style="text-align: center;font-size: 20px;color: #fff;margin: 0 0 5px 0;">
-									<td >Change Email:</td>
-								</div>
-								<div>
-									<td><?php echo '<input class="email signupbox" required type="email" name="email" placeholder="New Email" value="'.$uemail_db.'">'; ?></td>
-								</div>
-								<div>
-									<td><input class="uisignupbutton signupbutton" type="submit" name="changesettings" value="Update Settings"></td>
-								</div>
-								<div>
-									<?php if (isset($success_message)) {echo $success_message;} ?>
-								</div>
-							</div>
-						</form>
+					<h4>Change Password:</h4>
+					<div class="form-floating">
+						<input  class="form-control" type="password" name="opass" placeholder="Old Password" id="oldpassword">
+						<label for="oldpassword">Old Password</label>
 					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	
+					<div class="form-floating">
+						<input  class="form-control" type="password" name="npass" placeholder="New Password" id="newpassword">
+						<label for="newpassword">New Password</label>
+					</div>
+					<div class="form-floating">
+						<input  class="form-control" type="password" name="npass1" placeholder="Repeat Password" id="newpassword1">
+						<label for="newpassword1">Repeat Password</label>
+					</div>
+					<input class="btn btn-primary mt-3 px-3 py-2" type="submit" name="changesettings" value="Update Settings">
+				</form>
+				<form method="POST" class="registration col-md-6 col-sm-12">
+					<h4>Change Phone:</h4>
+					<div class="form-floating mb-3">
+						<?php echo '<input class="form-control" required type="tel" name="tel" placeholder="New Phone Number" id="phone" value="'.$umob_db.'">'; ?>
+						<label for="phone">New Email address</label>
+					</div>
+					<h4>Details:</h4>
+					<div class="form-floating">
+						<input  class="form-control" type="text" name="first_name" placeholder="First Name" id="FirstName">
+						<label for="FirstName">First Name</label>
+					</div>
+					<div class="form-floating">
+						<input  class="form-control" type="text" name="last_name" placeholder="Last Name" id="LastName">
+						<label for="LastName">Last Name</label>
+					</div>
+					<div class="form-floating">
+						<input  class="form-control" type="text" name="address" placeholder="Address" id="address">
+						<label for="address">Address</label>
+					</div>
+					<input class="btn btn-primary mt-3 px-3 py-2" type="submit" name="changesettings2" value="Update Settings">
+				</form>
+			</div>
+	</div>	
 </body>
 </html>

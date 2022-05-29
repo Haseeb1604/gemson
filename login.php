@@ -107,12 +107,13 @@ if(isset($_POST['activate'])){
 <?php include ( "inc/navbar.inc.php" ); ?>
 <section>
 	<div class="container py-5 h-100">
+		<?php include ( "inc/message.inc.php" ); ?>
 		<div class="row d-flex align-items-center justify-content-center h-100">
 			<div class="col-md-8 col-lg-7 col-xl-6">
 				<img src="./image/login.svg" class="img-fluid" alt="Phone image">
 			</div>
 			<div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-			<form>
+			<form method="POST">
 				<!-- Email input -->
 				<div class="form-outline mb-4">
 					<input type="email" name="email" id="email" class="form-control form-control-lg" />
@@ -135,7 +136,7 @@ if(isset($_POST['activate'])){
 				</div>
 
 				<!-- Submit button -->
-				<button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+				<button type="submit" name="login" class="btn btn-primary btn-lg btn-block">Sign in</button>
 			</form>
 			</div>
 		</div>
@@ -147,11 +148,11 @@ if(isset($_POST['activate'])){
 					<div>
 						<div class="signupform_content">
 							<?php
-							 	if (isset($activacc)){
-							 		echo '<h2>Activation Form</h2>';
-							 	}else {
-							 		echo '<h2>Login Form</h2>';
-							 	}
+							 	// if (isset($activacc)){
+							 		// echo '<h2>Activation Form</h2>';
+							 	// }else {
+							 		// echo '<h2>Login Form</h2>';
+							 	// }
 							?>
 							<div class="signupform_text"></div>
 							<div>
@@ -205,7 +206,7 @@ if(isset($_POST['activate'])){
 										</div>
 										<div class="signup_error_msg">
 											<?php 
-												if (isset($error_message)) {echo $error_message;}
+												// if (isset($error_message)) {echo $error_message;}
 												
 											?>
 										</div>

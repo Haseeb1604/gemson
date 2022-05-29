@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_login'])) {
                     <a class="nav-link home" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link about" href="about.php">About</a>
+                    <a class="nav-link about" href="about.php">About Us</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -36,21 +36,23 @@ if (!isset($_SESSION['user_login'])) {
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
-                            <a href="saree.php" class="dropdown-item">Saree</a>
+                            <a href="women/saree.php" class="dropdown-item">Saree</a>
                         </li>
-                        <li><a href="saree.php" class="dropdown-item">Ornament</a>
+                        <li><a href="women/ornament.php" class="dropdown-item">Ornament</a>
                         </li>
-                        <li><a href="saree.php" class="dropdown-item">Watch</a>
+                        <li><a href="women/watch.php" class="dropdown-item">Watch</a>
                         </li>
-                        <li><a href="saree.php" class="dropdown-item">Perfume</a>
+                        <li><a href="women/perfume.php" class="dropdown-item">Perfume</a>
                         </li>
-                        <li><a href="saree.php" class="dropdown-item">Hijab</a>
+                        <li><a href="women/hijab.php" class="dropdown-item">Hijab</a>
                         </li>
-                        <li><a href="saree.php" class="dropdown-item">T-Shirt</a>
+                        <li><a href="women/tshirt.php" class="dropdown-item">T-Shirt</a>
                         </li>
-                        <li><a href="saree.php" class="dropdown-item">FootWear</a>
+                        <li><a href="women/footwear.php" class="dropdown-item">FootWear</a>
                         </li>
-                        <li><a href="saree.php" class="dropdown-item">Toilatry</a>
+                        <li><a href="women/toilatry.php" class="dropdown-item">Toilatry</a>
+                        </li>
+                        <li><a href="women/view_product.php" class="dropdown-item">View Product</a>
                         </li>
                     </ul>
                 </li>
@@ -58,7 +60,7 @@ if (!isset($_SESSION['user_login'])) {
             <div class="btn-group justify-content-center ms-3 " role="group">
                 <div class="loginBtn">
                     <?php 
-                    if (!isset($user)) {
+                    if ($user!="") {
 							echo '<a class="btn" href="profile.php?uid='.$user.'">Profile</a>';
 						}
 						else {
@@ -68,7 +70,7 @@ if (!isset($_SESSION['user_login'])) {
                 </div>
                 <div class="SignupBtn">
                     <?php  
-                    if (!isset($user)) {
+                    if ($user!="") {
 							echo '<a class="btn" href="logout.php">LOG OUT</a>';
 						}
 						else {
