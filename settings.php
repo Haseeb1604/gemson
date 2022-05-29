@@ -20,7 +20,7 @@ else {
 
 if (isset($_REQUEST['uid'])) {
 	
-	$user2 = mysql_real_escape_string($_REQUEST['uid']);
+	$user2 = mysqli_real_escape_string( $con,$_REQUEST['uid']);
 	if($user != $user2){
 		header('location: index.php');
 	}

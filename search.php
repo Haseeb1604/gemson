@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_login'])) {
 else {
 	$user = $_SESSION['user_login'];
 	$result = mysqli_query($con,"SELECT * FROM user WHERE id='$user'");
-		$get_user_email = mysql_fetch_assoc($result);
+		$get_user_email = mysqli_fetch_assoc($result);
 			$uname_db = $get_user_email['firstName'];
 }
 
@@ -100,7 +100,7 @@ $search_value = trim($_GET['keywords']);
 					if ( $total = mysql_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					echo '<div style="text-align: center;"> '.$total.' Products Found... </div><br>';
-					while ($row = mysql_fetch_assoc($getposts)) {
+					while ($row = mysqli_fetch_assoc($getposts)) {
 						$id = $row['id'];
 						$pName = $row['pName'];
 						$price = $row['price'];

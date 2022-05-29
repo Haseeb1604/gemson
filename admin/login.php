@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
 		$password_login_md5 = md5($password_login);
 		$result = mysqli_query($con,"SELECT * FROM admin WHERE (email='$user_login') AND password='$password_login_md5'");
 		$num = mysql_num_rows($result);
-		$get_user_email = mysql_fetch_assoc($result);
+		$get_user_email = mysqli_fetch_assoc($result);
 			$get_user_uname_db = $get_user_email['id'];
 		if ($num>0) {
 			$_SESSION['admin_login'] = $get_user_uname_db;

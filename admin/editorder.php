@@ -22,12 +22,12 @@ else {
 	}
 	$user = $_SESSION['admin_login'];
 	$result = mysqli_query($con,"SELECT * FROM admin WHERE id='$user'");
-	$get_user_email = mysql_fetch_assoc($result);
+	$get_user_email = mysqli_fetch_assoc($result);
 		$uname_db = $get_user_email['firstName'];
 
 
 	$result1 = mysqli_query($con,"SELECT * FROM orders WHERE id='$eoid'");
-		$get_order_info = mysql_fetch_assoc($result1);
+		$get_order_info = mysqli_fetch_assoc($result1);
 			$eouid = $get_order_info['uid'];
 			$eopid = $get_order_info['pid'];
 			$eoquantity = $get_order_info['quantity'];
@@ -39,7 +39,7 @@ else {
 			$eddate = $get_order_info['ddate'];
 
 			$result2 = mysqli_query($con,"SELECT * FROM user WHERE id='$eouid'");
-			$get_order_info2 = mysql_fetch_assoc($result2);
+			$get_order_info2 = mysqli_fetch_assoc($result2);
 			$euname = $get_order_info2['firstName'];
 			$euemail = $get_order_info2['email'];
 			$eumobile = $get_order_info2['mobile'];
@@ -47,7 +47,7 @@ else {
 
 $getposts = mysqli_query($con,"SELECT * FROM products WHERE id ='$eopid'") or die(mysql_error());
 					if (mysql_num_rows($getposts)) {
-						$row = mysql_fetch_assoc($getposts);
+						$row = mysqli_fetch_assoc($getposts);
 						$id = $row['id'];
 						$pName = $row['pName'];
 						$price = $row['price'];

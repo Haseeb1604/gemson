@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_login'])) {
 else {
 	$user = $_SESSION['admin_login'];
 	$result = mysqli_query($con,"SELECT * FROM admin WHERE id='$user'");
-		$get_user_email = mysql_fetch_assoc($result);
+		$get_user_email = mysqli_fetch_assoc($result);
 			$uname_db = $get_user_email['firstName'];
 }
 if (isset($_REQUEST['keywords'])) {
@@ -106,7 +106,7 @@ $search_value = trim($_GET['keywords']);
 					$query = "SELECT * FROM products WHERE pName like '%$search_value%'  ORDER BY id DESC";
 					$run = mysqli_query($con,$query);
 					if ( $total = mysql_num_rows($run)) {
-					while ($row=mysql_fetch_assoc($run)) {
+					while ($row=mysqli_fetch_assoc($run)) {
 						$id = $row['id'];
 						$pName = substr($row['pName'], 0,50);
 						$descri = $row['description'];

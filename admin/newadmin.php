@@ -12,7 +12,7 @@ if (!isset($_SESSION['admin_login'])) {
 else {
 	$user = $_SESSION['admin_login'];
 	$result = mysqli_query($con,"SELECT * FROM admin WHERE id='$user'");
-		$get_user_email = mysql_fetch_assoc($result);
+		$get_user_email = mysqli_fetch_assoc($result);
 			$uname_db = $get_user_email['firstName'];
 }
 

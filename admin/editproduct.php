@@ -16,13 +16,13 @@ else {
 	}
 	$user = $_SESSION['admin_login'];
 	$result = mysqli_query($con,"SELECT * FROM admin WHERE id='$user'");
-	$get_user_email = mysql_fetch_assoc($result);
+	$get_user_email = mysqli_fetch_assoc($result);
 		$uname_db = $get_user_email['firstName'];
 
 }
 $getposts = mysqli_query($con,"SELECT * FROM products WHERE id ='$epid'") or die(mysql_error());
 	if (mysql_num_rows($getposts)) {
-		$row = mysql_fetch_assoc($getposts);
+		$row = mysqli_fetch_assoc($getposts);
 		$id = $row['id'];
 		$pName = $row['pName'];
 		$price = $row['price'];
