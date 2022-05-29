@@ -4,25 +4,17 @@ ob_start();
 session_start();
 if (!isset($_SESSION['user_login'])) {
 	$user = "";
-}
-else {
+}else {
 	$user = $_SESSION['user_login'];
 	$result = mysqli_query($con, "SELECT * FROM user WHERE id='$user'");
-		$get_user_email = mysqli_fetch_assoc($result);
-			$uname_db = $get_user_email['firstName'];
+	$get_user_email = mysqli_fetch_assoc($result);
+	$uname_db = $get_user_email['firstName'];
 }
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Gemsone</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<script src="/js/homeslideshow.js"></script>
-	</head>
-	<body style="min-width: 980px;">
-		<div class="homepageheader" style="position: relative;">
+<?php include ( "inc/head.inc.php" ); ?>
+<body>
+	<?php include ( "inc/navbar.inc.php" ); ?>
+	<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 					<?php 
@@ -131,5 +123,4 @@ else {
 				</ul>
 			</div>			
 		</div>
-	</body>
-</html>
+<?php include ( "inc/foot.inc.php") ?>

@@ -98,40 +98,6 @@ body{
   background-color: #24bfae;
 }
 
-#newsearch{
-	float:left;
-	padding:15px;
-}
-.srctextinput{
-	margin: 0px;
-	padding: 9px 15px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size:20px;
-	border:1px solid #0076a3; border-right:0px;
-	border-top-left-radius: 5px 5px;
-	border-bottom-left-radius: 5px 5px;
-	width: 335px;
-}
-.srcbutton {
-	margin: 0;
-	padding: 9px 5px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size:20px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3; border-right:0px;
-	background: #169E8F;
-	border-top-right-radius: 5px 5px;
-	border-bottom-right-radius: 5px 5px;
-}
-.srcbutton:hover {
-	text-decoration: none;
-	background: #24bfae;
-}
-
 .pquantys {
   margin: 0px;
   padding: 9px 15px;
