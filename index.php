@@ -56,7 +56,8 @@ if (!isset($_SESSION['user_login'])) {
 					<img src="./image/product/ornament/earrings1.png" class="home-product-img"></a>
 			</div>
 		</div>
-		<script>
+
+<script>
 			document.querySelector(".nav-item .home").classList.add("active")
 		</script>
-		<?php include ( "inc/foot.inc.php") ?>
+<?php include ( "inc/foot.inc.php") ?>

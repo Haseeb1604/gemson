@@ -30,8 +30,7 @@ if (isset($_POST['login'])) {
 			$error_message = '<br><br>
 				<div class="maincontent_text" style="text-align: center; font-size: 18px;">
 				<font face="bookman">Username or Password incorrect.<br>
-				</font></div>';
-			
+				</font></div>';	
 		}
 	}
 
@@ -40,71 +39,47 @@ if (isset($_POST['login'])) {
 $search_value = "";
 
 ?>
+<?php include ( "inc/head.inc.php" )?>
 
-<!doctype html>
-<html>
-	<head>
-		<title>Welcome to ebuybd online shop</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-	</head>
-	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg1.png);">
-		<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none;" href="login.php">LOG IN</a>
+<body>
+	<?php include ( "inc/navbar.inc.php") ?>
+	<section class="mb-3">
+		<div class="container py-5 h-100">
+			<?php include ( "../inc/message.inc.php" ); ?>
+			<div class="row d-flex align-items-center justify-content-center h-100">
+				<div class="col-md-8 col-lg-7 col-xl-6">
+					<img src="../image/login.svg" class="img-fluid" alt="Phone image">
 				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="../image/ebuybdlogo.png">
-				</a>
-			</div>
-			<div id="srcheader">
-				<form id="newsearch" method="get" action="search.php">
-				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
-				         ?>
-				</form>
-			<div class="srcclear"></div>
-			</div>
-		</div>
-		<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
-			<div class="container">
-				<div>
-					<div>
-						<div class="signupform_content">
-							<h2>Admin Login</h2>
-							<div class="signupform_text"></div>
-							<div>
-								<form action="" method="POST" class="registration">
-									<div class="signup_form">
-										<div>
-											<td>
-												<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="password" id="password-1" required="required"  placeholder="Enter Password" class="password signupbox " type="password" size="30" value="">
-											</td>
-										</div>
-										<div>
-											<input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
-										</div>
-										<div class="signup_error_msg">
-											<?php 
-												if (isset($error_message)) {echo $error_message;}
-												
-											?>
-										</div>
-									</div>
-								</form>
-								
-							</div>
+				<div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+					<form method="POST">
+						<!-- Email input -->
+						<div class="form-outline mb-4">
+							<input type="email" name="email" id="email" class="form-control form-control-lg" />
+							<label class="form-label" for="form1Example13">Email address</label>
 						</div>
-					</div>
+
+						<!-- Password input -->
+						<div class="form-outline mb-4">
+							<input type="password" name="password" id="password" class="form-control form-control-lg" />
+							<label class="form-label" for="form1Example23">Password</label>
+						</div>
+
+						<div class="d-flex justify-content-between align-items-center mb-4">
+							<!-- Checkbox -->
+							<div class="form-check">
+								<input class="form-check-input" name="remember" type="checkbox" value="" id="remember"
+									checked />
+								<label class="form-check-label" for="form1Example3"> Remember me </label>
+							</div>
+							<a href="#!">Forgot password?</a>
+						</div>
+
+						<!-- Login button -->
+						<button type="submit" name="login" class="btn btn-primary btn-lg btn-block">Sign in</button>
+					</form>
 				</div>
 			</div>
 		</div>
-	</body>
-</html>
+	</section>
+
+	<?php include ( "../inc/foot.inc.php" );?>

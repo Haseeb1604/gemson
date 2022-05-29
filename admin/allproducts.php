@@ -17,62 +17,9 @@ $search_value = "";
 
 ?>
 
-
-<!doctype html>
-<html>
-	<head>
-		<title>Welcome to ebuybd online shop</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-	</head>
+<?php include ( "inc/head.inc.php") ?>
 	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg2.png);">
-		<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none;color: #fff;" href="logout.php">LOG OUT</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none;color: #fff;" href="login.php">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none;color: #fff;" href="login.php">LOG IN</a>';
-						}
-					 ?>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="../image/ebuybdlogo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
-			</div>
-		</div>
-		<div class="categolis">
-			<table>
-				<tr>
-					<th>
-						<a href="index.php" style="text-decoration: none;color: #fff;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Home</a>
-					</th>
-					<th><a href="addproduct.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Add Product</a></th>
-					<th><a href="newadmin.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">New Admin</a></th>
-					<th><a href="allproducts.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #24bfae;border-radius: 12px;">All Products</a></th>
-					<th><a href="orders.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orders</a></th>
-				</tr>
-			</table>
-		</div>
+		<?php include ( "inc/navbar.inc.php")?>
 		<div>
 			<table class="rightsidemenu">
 				<tr style="font-weight: bold;" colspan="10" bgcolor="#4DB849">
@@ -121,5 +68,4 @@ $search_value = "";
 				<?php } ?>
 			</table>
 		</div>
-	</body>
-</html>
+<?php include ( "inc/foot.inc.php" ); ?>
